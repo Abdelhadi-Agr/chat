@@ -31,7 +31,10 @@ function Middle_body(props) {
   },[props.msg.to,sync])
   return (
     <div className='Middle_body scrollgrey'>
-        {messages.map((m,i)=><Message key={i} msg={m}/>)}
+        {props.msg.to ==null ? <div className="unknown">choose contact</div>:
+        <div>
+          {messages?.map((m,i)=><Message key={i} msg={m}/>)}
+        </div>}
     </div>
   )
 }
