@@ -14,24 +14,39 @@ import { auth,db } from "../firebase-config";
 function After_Auth() {
   const [users, setUsers] = useState([]);
   var [msg,SetMsg]=useState({});
+  var [bol,setBol]=useState(false);
+  function change(){setBol(!bol)}
   const usersCollectionRef = collection(db, "users");
   const createUser = async () => {
     let date=Date.now();
     await addDoc(usersCollectionRef, {uid:auth.currentUser.uid,name:auth.currentUser.displayName , email:auth.currentUser.email,DateCreation:date });
   };
-  const getUsers = async () => {
+  //return all users in db
+  const get=async ()=>{
     const data = await getDocs(usersCollectionRef);
     let list=data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+    setUsers(list);
+    return list;
+  }
+  const first = async () => {
+    console.log('first');
+    let list=get();
     let res=false;
     for(let i=0;i<list.length;i++){
       if(list[i].uid==auth.currentUser.uid){res=true;break;}
     }
-    if(!res) createUser();
-    setUsers(list);
+    if(!res) {
+      createUser();
+    };
   };
   useEffect(() => {
-    getUsers();
-  }, []);
+    setTimeout(change,5000);
+    get();
+  }, [bol]);
+  
+  useEffect(()=>{
+    first();
+  },[])
    
   function selectContact(to){
     let start={

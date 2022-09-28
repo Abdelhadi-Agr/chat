@@ -8,13 +8,13 @@ function Middle(props) {
     <div className="Middle">
       <table style={{height:'100%',width:'100%'}}>
         <tr style={{height:'10%'}}>
-          <td style={{width:'100px',marginTop:'0px'}}><Middle_header msg={props.msg}/></td>
+          <td style={{width:'100%',marginTop:'0px'}}><Middle_header msg={props.msg}/></td>
         </tr>
         <tr style={{height:'75%'}}>
-          <td style={{width:'100px'}}><Middle_body msg={props.msg}/></td>
+          <td style={{width:'100%'}}><Middle_body msg={props.msg}/></td>
         </tr>
         <tr style={{height:'15%'}}>
-          <td style={{width:'100px'}}><Texting msg={props.msg}/></td>
+          <td style={{width:'100%'}}><Texting msg={props.msg}/></td>
         </tr>
       </table>
     </div>
