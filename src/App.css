@@ -8,3 +8,16 @@
   font-size: 100px;
   text-align: center;
 }
+.Avatar{
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.card_height{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

@@ -1,0 +1,17 @@
+.title{
+    font-family: 'Bungee Spice', cursive;
+    font-size: 50px;
+    text-align: center;
+}
+.body{
+    background: url('https://i.ytimg.com/vi/wb7m_Y_3irg/maxresdefault.jpg');
+    background-repeat: no-repeat;   
+    height: 400px;
+    }
+.button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}

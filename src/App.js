@@ -1,18 +1,29 @@
 import './App.css';
-import Left from './Components/Left';
-import Middle from './Components/Middle';
-
+import After_Auth from './Components/After_Auth';
+import SignIn from './SignIn';
+import { auth, provider } from "./firebase-config";
+import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { useEffect, useState } from "react";
 function App() {
+  var [user,setUser]=useState({});
+  const signInWithGoogle = () => {
+    signInWithPopup(auth,provider)
+      .then((result) => {
+        setUser(result.user)
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+    }
+  useEffect(()=>{
+    const play=onAuthStateChanged(auth,(currentUser)=>{
+      setUser(currentUser);
+    })
+    return ()=>{play()};
+  })
   return (
     <div className="App">
-           <div className="title">R3d-H@t</div>
-           <table style={{width:'100%'}}>
-            <tr>
-              <td style={{width:'30%'}}><Left></Left></td>
-              <td style={{width:'20%'}}></td>
-              <td style={{width:'50%'}}><Middle></Middle></td>
-            </tr>
-           </table>
+      {auth.currentUser!=null? <After_Auth/> : <SignIn/>}              
     </div>
   );
 }

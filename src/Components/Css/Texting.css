@@ -1,0 +1,11 @@
+.submit{
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}
+.headIcon{
+    background-color: rgb(157, 198, 231,0.9);
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}

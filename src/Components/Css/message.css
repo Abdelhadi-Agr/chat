@@ -1,0 +1,18 @@
+.Message{
+    margin-left: 10px;
+    width:90%;
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+.Text1{
+    margin-left: 0px;
+    background-color: rgb(157, 198, 231);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.Text2{
+    margin-left: 0px;
+    background-color: rgb(234, 171, 76);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}

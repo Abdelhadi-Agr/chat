@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
 import {getStorage} from 'firebase/storage'
-import { getAuth,GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import { getAuth,GoogleAuthProvider} from "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyCu-qSGJtEQu7YeB-4SJYU5gOaxJb_NReU",
     authDomain: "red-hat-bb2f2.firebaseapp.com",

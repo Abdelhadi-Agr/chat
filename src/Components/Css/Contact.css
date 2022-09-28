@@ -1,7 +1,25 @@
 .Contact{
     width: 100%;
-    border:solid white ;
+    border-radius: 10px;
     height: 80px;
     margin-top: 10px;
     margin-bottom: 10px;
+    background-color: rgb(123, 128, 138);
+    cursor: pointer;
+}
+.Contact:hover{
+    background-color: rgb(96, 89, 89);
+}
+.Avatar{
+    margin-left: 15px;
+}
+.email{
+    height:40%;
+    color:rgb(235, 165, 24);
+    font-size: large;
+    font-weight: bolder;
+}
+.message{
+    height:60%;
+    
 }
