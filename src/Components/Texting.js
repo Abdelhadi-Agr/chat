@@ -12,16 +12,19 @@ function Texting(props) {
     let [text,setText]=useState('');
     const valider = async () => {
         setText('');
-        console.log(props.msg)
-        console.log(text)
-        await addDoc(messagesCollectionRef, {
-            from:props.msg.from,
-            from_name:props.msg.from_name,
-            to:props.msg.to,
-            to_name:props.msg.to_name,
-            message:text,
-            date:Date.now()
-         });
+        try{
+            await addDoc(messagesCollectionRef, {
+                from:props.msg.from,
+                from_name:props.msg.from_name,
+                to:props.msg.to,
+                to_name:props.msg.to_name,
+                message:text,
+                date:Date.now()
+             });
+        }
+        catch(e){
+            alert('please select a contact to text with')
+        }
       };
     function changeClick(){
         setClicked(true);

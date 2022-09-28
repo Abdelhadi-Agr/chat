@@ -10,7 +10,7 @@ function Left(props) {
           <div className='contact_title'>Contact</div>
         </div>
         <div className="contacts">
-            {props.users.map((user,index)=><Contact key={index} user={user} selectContact={props.selectContact}/>)}
+            {props.users?.map((user,index)=><Contact key={index} user={user} selectContact={props.selectContact}/>)}
         </div>
     </div>
   )

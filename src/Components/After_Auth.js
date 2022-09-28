@@ -1,4 +1,5 @@
 import React, { useState,useEffect} from 'react'
+import { query, where, orderBy, limit,onSnapshot } from "firebase/firestore";
 import Left from './Left';
 import Middle from './Middle';
 import { Avatar } from '@mui/material';
@@ -9,6 +10,7 @@ import {
 } from "firebase/firestore";
 import {signOut } from "firebase/auth";
 import { auth,db } from "../firebase-config";
+import { list } from 'firebase/storage';
 
 
 function After_Auth() {
@@ -25,22 +27,22 @@ function After_Auth() {
   const get=async ()=>{
     const data = await getDocs(usersCollectionRef);
     let list=data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-    setUsers(list);
-    return list;
+    let list2=[];
+    for(let i=0;i<list.length;i++){if(list[i].email !=auth.currentUser.email){list2.push(list[i])}}
+    setUsers(list2);
+    return list2;
   }
   const first = async () => {
-    console.log('first');
-    let list=get();
+    const data = await getDocs(usersCollectionRef);
+    let list=data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
     let res=false;
     for(let i=0;i<list.length;i++){
       if(list[i].uid==auth.currentUser.uid){res=true;break;}
     }
-    if(!res) {
-      createUser();
-    };
+    if(!res) createUser();
   };
   useEffect(() => {
-    setTimeout(change,5000);
+    setTimeout(change,3000);
     get();
   }, [bol]);
   
